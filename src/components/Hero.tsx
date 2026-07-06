@@ -5,12 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { HeroVisual } from "./HeroVisual";
 import styles from "./Hero.module.css";
 
-const stats = [
-  { value: "01", label: "Persona detrás de todo esto" },
-  { value: "100%", label: "Autofinanciado, sin atajos" },
-  { value: "∞", label: "Juegos por venir" },
-];
-
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -21,6 +15,8 @@ export function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 12]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.2]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const spread = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <section ref={ref} className={styles.hero}>
@@ -32,12 +28,10 @@ export function Hero() {
         <div className={styles.copy}>
           <p className={`eyebrow ${styles.eyebrow}`}>Agalar Studio</p>
           <h1 className={styles.title}>
-            Hacemos juegos
-            <br />
-            <span className={styles.accent}>que se sienten vivos.</span>
+            Estudio indie de videojuegos.
           </h1>
           <p className={styles.lead}>
-            Diseño y programo juegos, sin atajos ni promesas vacías.
+            Un desarrollador, diseñando y programando cada juego de principio a fin.
           </p>
           <div className={styles.actions}>
             <a href="#demo" className="btn btn--solid">
@@ -47,19 +41,10 @@ export function Hero() {
               Ver juegos
             </a>
           </div>
-
-          <dl className={styles.stats}>
-            {stats.map((s) => (
-              <div key={s.label} className={styles.stat}>
-                <dt className={styles.statValue}>{s.value}</dt>
-                <dd className={styles.statLabel}>{s.label}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
-        <motion.div className={styles.visual} style={{ y, rotate, opacity }}>
-          <HeroVisual />
+        <motion.div className={styles.visual} style={{ y, rotate, opacity, scale }}>
+          <HeroVisual spread={spread} />
         </motion.div>
       </div>
 

@@ -8,15 +8,14 @@ export function NotifyBand() {
       <div className="container">
         <Reveal className={styles.inner}>
           <div className={styles.copy}>
-            <p className="eyebrow">No te lo pierdas</p>
+            <p className="eyebrow">Novedades</p>
             <h2 className={styles.title}>
-              Sé el primero en enterarte
+              Avísame cuando haya
               <br />
-              de lo que lanzamos.
+              algo nuevo.
             </h2>
             <p className={styles.text}>
-              Déjame tu correo y te aviso cuando haya novedades de verdad:
-              lanzamientos, betas abiertas, hitos del estudio. Nada más.
+              Deja tu correo para recibir avisos de lanzamientos y betas abiertas.
             </p>
           </div>
           <div className={styles.formWrap}>

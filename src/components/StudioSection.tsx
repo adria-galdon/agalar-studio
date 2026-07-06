@@ -16,16 +16,16 @@ import styles from "./StudioSection.module.css";
 
 const principles = [
   {
-    title: "Cada lanzamiento sube el listón",
-    body: "Nunca repetimos fórmula.",
+    title: "Un desarrollador, todo el proceso",
+    body: "Agalar Studio soy yo: diseño, programo y publico cada juego de principio a fin.",
   },
   {
-    title: "Autofinanciado, sin atajos",
-    body: "Ningún inversor marca los plazos.",
+    title: "Prototipo rápido, itero jugando",
+    body: "Cada mecánica se prueba jugable cuanto antes. Los niveles y el ritmo se ajustan jugándolos yo mismo, una y otra vez.",
   },
   {
-    title: "Construimos para quedarnos",
-    body: "Pensado para durar diez años.",
+    title: "Kotlin y Swift",
+    body: "Cada juego se construye de forma nativa para Android e iOS, sin motores intermedios.",
   },
 ];
 
@@ -48,15 +48,12 @@ export function StudioSection() {
     <section id="estudio" ref={ref} className={styles.wrap}>
       <div className={styles.sticky}>
         <div className={`container ${styles.inner}`}>
-          <p className="eyebrow">Nuestra visión</p>
+          <p className="eyebrow">El estudio</p>
           <h2 className={styles.title}>
-            Pequeños ahora.
-            <br />
-            No por mucho tiempo.
+            Cómo trabajo
           </h2>
           <p className={styles.text}>
-            Ahora mismo, Agalar Studio soy yo. Un proyecto pequeño hecho con
-            criterio vale más que uno grande hecho a medias.
+            Agalar Studio es un estudio indie de un solo desarrollador.
           </p>
 
           <div className={styles.stageWrap}>

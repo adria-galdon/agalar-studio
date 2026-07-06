@@ -5,7 +5,7 @@
 // depender de WebGL/three.js — solo SVG + framer-motion, ligero y fiable.
 
 import { useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, type MotionValue } from "framer-motion";
 import styles from "./HeroVisual.module.css";
 
 interface Node {
@@ -39,7 +39,16 @@ const EDGES: [number, number][] = [
 
 const COLORS = ["var(--accent)", "var(--accent-3)", "var(--accent-4)"];
 
-export function HeroVisual() {
+interface HeroVisualProps {
+  /** 0→1: cuánto ha avanzado el scroll del Hero. Dispersa el grafo desde el centro. */
+  spread?: MotionValue<number>;
+}
+
+export function HeroVisual({ spread }: HeroVisualProps) {
+  const fallbackSpread = useMotionValue(0);
+  const s = spread ?? fallbackSpread;
+  const scale = useTransform(s, (v) => 1 + v * 0.35);
+
   const edgeMeta = useMemo(
     () =>
       EDGES.map(([a, b], i) => ({
@@ -59,49 +68,51 @@ export function HeroVisual() {
         preserveAspectRatio="xMidYMid meet"
         aria-hidden="true"
       >
-        {edgeMeta.map((e, i) => (
-          <motion.line
-            key={i}
-            x1={e.a.x}
-            y1={e.a.y}
-            x2={e.b.x}
-            y2={e.b.y}
-            stroke={e.color}
-            strokeWidth={0.9}
-            strokeLinecap="round"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.85 }}
-            transition={{
-              duration: 1.1,
-              delay: e.delay,
-              repeat: Infinity,
-              repeatType: "reverse",
-              repeatDelay: 2.4,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-
-        {NODES.map((n, i) => (
-          <motion.g key={i}>
-            <motion.circle
-              cx={n.x}
-              cy={n.y}
-              r={3.4}
-              fill={COLORS[i % COLORS.length]}
-              opacity={0.18}
-              animate={{ r: [3.4, 5.2, 3.4] }}
+        <motion.g style={{ scale, transformOrigin: "52px 50px" }}>
+          {edgeMeta.map((e, i) => (
+            <motion.line
+              key={i}
+              x1={e.a.x}
+              y1={e.a.y}
+              x2={e.b.x}
+              y2={e.b.y}
+              stroke={e.color}
+              strokeWidth={0.9}
+              strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.85 }}
               transition={{
-                duration: 3.2,
+                duration: 1.1,
+                delay: e.delay,
                 repeat: Infinity,
-                delay: i * 0.25,
+                repeatType: "reverse",
+                repeatDelay: 2.4,
                 ease: "easeInOut",
               }}
             />
-            <circle cx={n.x} cy={n.y} r={1.6} fill={COLORS[i % COLORS.length]} />
-            <circle cx={n.x} cy={n.y} r={0.6} fill="#fff" />
-          </motion.g>
-        ))}
+          ))}
+
+          {NODES.map((n, i) => (
+            <motion.g key={i}>
+              <motion.circle
+                cx={n.x}
+                cy={n.y}
+                fill={COLORS[i % COLORS.length]}
+                opacity={0.18}
+                initial={{ r: 3.4 }}
+                animate={{ r: [3.4, 5.2, 3.4] }}
+                transition={{
+                  duration: 3.2,
+                  repeat: Infinity,
+                  delay: i * 0.25,
+                  ease: "easeInOut",
+                }}
+              />
+              <circle cx={n.x} cy={n.y} r={1.6} fill={COLORS[i % COLORS.length]} />
+              <circle cx={n.x} cy={n.y} r={0.6} fill="#fff" />
+            </motion.g>
+          ))}
+        </motion.g>
       </svg>
     </div>
   );

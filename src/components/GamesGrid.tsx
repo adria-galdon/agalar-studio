@@ -9,7 +9,7 @@ export function GamesGrid() {
       <div className="container">
         <Reveal className={styles.head}>
           <p className="eyebrow">Catálogo</p>
-          <h2 className={styles.title}>El primero de muchos.</h2>
+          <h2 className={styles.title}>Juegos</h2>
         </Reveal>
 
         <Reveal className={styles.grid}>

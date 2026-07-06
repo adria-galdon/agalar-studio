@@ -31,7 +31,7 @@ export function Roadmap() {
       <div className="container">
         <Reveal>
           <p className="eyebrow">Hoja de ruta</p>
-          <h2 className={styles.title}>Esto es a lo que nos comprometemos.</h2>
+          <h2 className={styles.title}>Qué viene ahora.</h2>
         </Reveal>
 
         <ol className={styles.list}>
