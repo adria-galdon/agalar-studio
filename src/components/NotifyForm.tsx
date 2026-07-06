@@ -101,7 +101,7 @@ export function NotifyForm({
         </p>
       )}
       {state !== "error" && !compact && (
-        <p className={styles.note}>Sin spam. Solo un aviso cuando Nexus salga.</p>
+        <p className={styles.note}>Sin spam. Solo un aviso cuando haya novedades.</p>
       )}
     </form>
   );

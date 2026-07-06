@@ -185,7 +185,7 @@ export function NexusDemo() {
     <section id="demo" className={`section ${styles.wrap}`}>
       <div className="container">
         <Reveal>
-          <p className="eyebrow">Pruébalo tú</p>
+          <p className="eyebrow">Pruébalo tú mismo</p>
           <h2 className={styles.title}>La mecánica de Nexus, aquí mismo.</h2>
           <p className={styles.lead}>
             Conecta cada par de nodos del mismo color con un camino que no toque

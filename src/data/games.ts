@@ -40,6 +40,15 @@ export const games: Game[] = [
       "Más de cien niveles a lo largo de cuatro actos, tres decisiones que ramifican la historia y cuatro finales distintos. La narrativa no interrumpe el juego: emerge de él.",
     ],
     // cover: "/games/nexus-cover.png",
+    screenshots: [
+      "/games/nexus/screenshots/01_menu.png",
+      "/games/nexus/screenshots/02_campana.png",
+      "/games/nexus/screenshots/03_elige_giro.png",
+      "/games/nexus/screenshots/04_espejo_gameplay.png",
+      "/games/nexus/screenshots/05_congelado_gameplay.png",
+      "/games/nexus/screenshots/06_cadena_gameplay.png",
+      "/games/nexus/screenshots/07_clasico_progreso.png",
+    ],
     links: [],
   },
 ];

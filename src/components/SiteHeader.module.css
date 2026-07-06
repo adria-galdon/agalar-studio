@@ -3,16 +3,15 @@
   top: 0;
   z-index: 50;
   backdrop-filter: blur(12px);
-  background: color-mix(in srgb, var(--navy-800) 60%, transparent);
-  border-bottom: 1px solid transparent;
+  background: color-mix(in srgb, var(--navy-800) 55%, transparent);
+  border-bottom: 3px solid transparent;
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Al hacer scroll gana contraste y una sombra sutil. */
+/* Al hacer scroll gana contraste y una sombra sólida. */
 .scrolled {
-  background: color-mix(in srgb, var(--navy-800) 88%, transparent);
-  border-bottom-color: var(--studio-line);
-  box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.6);
+  background: color-mix(in srgb, var(--navy-700) 92%, transparent);
+  border-bottom-color: var(--ink);
 }
 
 .inner {
@@ -28,8 +27,9 @@
 }
 
 .cta {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.1rem;
   font-size: 0.85rem;
+  box-shadow: 3px 3px 0 0 var(--shadow-color);
 }
 
 @media (max-width: 600px) {
@@ -66,7 +66,7 @@
   left: 0;
   bottom: -6px;
   width: 0;
-  height: 1.5px;
+  height: 2.5px;
   background: var(--accent);
   transition: width 0.25s ease;
 }

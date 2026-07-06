@@ -24,9 +24,9 @@ export function SiteHeader() {
         </Link>
         <div className={styles.right}>
           <nav className={styles.nav} aria-label="Principal">
-            <Link href="/#juegos">Juegos</Link>
-            <Link href="/#demo">Jugar</Link>
+            <Link href="/juegos">Juegos</Link>
             <Link href="/#estudio">Estudio</Link>
+            <Link href="/#roadmap">Roadmap</Link>
             <Link href="/#contacto">Contacto</Link>
           </nav>
           <ThemeToggle />

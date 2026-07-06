@@ -2,6 +2,8 @@
   position: relative;
   padding-block: clamp(4.5rem, 12vw, 8rem);
   overflow: hidden;
+  background: var(--navy-900);
+  border-bottom: 3px solid var(--ink);
 }
 
 .grid {
@@ -10,23 +12,44 @@
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, var(--studio-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--studio-line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  opacity: 0.35;
+    linear-gradient(to right, var(--studio-line) 2px, transparent 2px),
+    linear-gradient(to bottom, var(--studio-line) 2px, transparent 2px);
+  background-size: 56px 56px;
+  opacity: 0.5;
   mask-image: radial-gradient(60rem 40rem at 70% 20%, black, transparent 75%);
 }
 
 .glow {
   position: absolute;
   z-index: 0;
-  top: 10%;
-  right: -10%;
-  width: 40rem;
-  height: 40rem;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%);
-  filter: blur(10px);
+  top: -10%;
+  right: -12%;
+  width: 42rem;
+  height: 42rem;
+  border-radius: 40% 60% 65% 35% / 45% 40% 60% 55%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 55%, transparent), transparent 70%);
+  filter: blur(4px);
   pointer-events: none;
+  animation: blobFloat 14s ease-in-out infinite;
+}
+
+.glow2 {
+  position: absolute;
+  z-index: 0;
+  bottom: -14%;
+  left: -10%;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 55% 45% 35% 65% / 50% 55% 45% 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-3) 45%, transparent), transparent 70%);
+  filter: blur(4px);
+  pointer-events: none;
+  animation: blobFloat 18s ease-in-out infinite reverse;
+}
+
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-3%, 4%) rotate(8deg); }
 }
 
 .inner {
@@ -44,15 +67,20 @@
 }
 
 .title {
-  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
-  line-height: 1.05;
+  font-size: clamp(2.6rem, 6.5vw, 4.4rem);
+  line-height: 1;
   margin-top: 1.2rem;
   opacity: 0;
   animation: fadeUp 0.8s ease forwards 0.45s;
 }
 
 .accent {
-  color: var(--accent);
+  display: inline-block;
+  color: var(--ink);
+  background: var(--accent-2);
+  padding: 0.05em 0.25em;
+  border-radius: 0.25em;
+  transform: rotate(-2deg);
 }
 
 .lead {
@@ -120,6 +148,16 @@
   }
 }
 
+.scrollCue {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.2rem, 3vw, 2.2rem);
+  transform: translateX(-50%);
+  z-index: 1;
+  color: var(--ink-faint);
+  pointer-events: none;
+}
+
 @media (max-width: 860px) {
   .inner {
     grid-template-columns: 1fr;
@@ -133,6 +171,9 @@
     flex-wrap: wrap;
     row-gap: 1.4rem;
   }
+  .scrollCue {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -145,5 +186,8 @@
     opacity: 1;
     animation: none;
     transform: none;
+  }
+  .scrollCue {
+    display: none;
   }
 }

@@ -71,10 +71,11 @@
 
 .tag {
   font-size: 0.78rem;
+  font-weight: 600;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
-  border: 1px solid var(--studio-line);
-  color: var(--ink-soft);
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
 }
 
 .visual {
@@ -85,7 +86,8 @@
   padding: clamp(2.5rem, 6vw, 4rem) 1rem;
   margin: 3rem 0;
   border-radius: var(--radius);
-  border: 1px solid var(--studio-line);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-sticker);
   background:
     linear-gradient(135deg, var(--navy-700), var(--navy-900));
   overflow: hidden;

@@ -1,63 +1,79 @@
 /* ============================================================
    AGALAR STUDIO — sistema de diseño
-   Paleta derivada de la marca. Fondo navy profundo como el logo.
-   El estudio es neutro (plata/hueso); cada juego aporta su acento.
+   Paleta anclada en el azul de marca del logo (#0E1428): fondo
+   claro y neutro por defecto, azul eléctrico como acento principal,
+   formas gruesas con sombra sólida "sticker".
+   El modo oscuro (navy profundo, el mismo del logo) se reserva
+   para momentos de impacto (hero, CTA).
    ============================================================ */
 
 :root {
-  /* Superficies */
-  --navy-900: #0a0f1f;   /* fondo más profundo */
-  --navy-800: #0e1428;   /* fondo principal (color del logo) */
-  --navy-700: #141b33;   /* superficies elevadas */
-  --navy-600: #1c2542;   /* bordes / hover */
+  /* Superficies — claro y neutro por defecto */
+  --navy-900: #eef1f8;   /* fondo más profundo (secciones alternas) */
+  --navy-800: #f8faff;   /* fondo principal */
+  --navy-700: #ffffff;   /* superficies elevadas (tarjetas) */
+  --navy-600: #dde4f5;   /* bordes suaves / hover */
 
-  /* Tinta y texto */
-  --ink: #f4f6fb;        /* texto principal casi blanco */
-  --ink-soft: #b3bdd6;   /* texto secundario */
-  --ink-faint: #6b769a;  /* texto terciario / captions */
+  /* Tinta y texto — el azul exacto del logo */
+  --ink: #0e1428;        /* texto principal, azul de marca */
+  --ink-soft: #4c5578;   /* texto secundario */
+  --ink-faint: #838da8;  /* texto terciario / captions */
 
-  /* Acento neutro del estudio (no de un juego concreto) */
-  --studio: #c9d3ea;     /* plata fría */
-  --studio-line: #2a3454;/* líneas estructurales */
+  /* Acento neutro del estudio */
+  --studio: #2f5fff;     /* azul de marca */
+  --studio-line: #dfe2f0;/* líneas estructurales */
 
-  /* Acento activo — lo sobrescribe cada juego vía inline style */
-  --accent: #4fd6c0;
+  /* Paleta de acentos, rotan por sección */
+  --accent: #2f5fff;     /* azul eléctrico — acción principal */
+  --accent-2: #ffb648;   /* ámbar — energía / contraste */
+  --accent-3: #2fd6c0;   /* cian — acento de Nexus */
+  --accent-4: #6c3ce0;   /* violeta — variación */
+
+  /* Sombra sólida tipo sticker (sin blur) */
+  --shadow-color: #0e1428;
+  --shadow-sticker: 5px 5px 0 0 var(--shadow-color);
+  --shadow-sticker-sm: 3px 3px 0 0 var(--shadow-color);
 
   /* Métrica */
   --maxw: 1180px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
-  --radius: 14px;
+  --radius: 22px;
 
-  /* Tipografía — se cargan vía <link> en el layout, con fallback a system-ui */
+  /* Tipografía */
   --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
 
-  color-scheme: dark;
-}
-
-/* ---------- Tema claro ---------- */
-[data-theme="light"] {
   color-scheme: light;
-
-  --navy-900: #eef0f6;
-  --navy-800: #ffffff;
-  --navy-700: #f5f6fb;
-  --navy-600: #e7e9f4;
-
-  --ink: #0e1428;
-  --ink-soft: #4c5578;
-  --ink-faint: #838da8;
-
-  --studio: #3b4568;
-  --studio-line: #dfe2ee;
-
-  --accent: #12a690;
 }
 
-[data-theme="light"] body::before {
+/* ---------- Tema oscuro: el navy del logo, para momentos de impacto ---------- */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --navy-900: #05070f;
+  --navy-800: #0e1428;
+  --navy-700: #161d38;
+  --navy-600: #212a4d;
+
+  --ink: #f4f6fb;
+  --ink-soft: #b3bdd6;
+  --ink-faint: #7883a8;
+
+  --studio: #7c9cff;
+  --studio-line: #2a3454;
+
+  --accent: #6f8dff;
+  --accent-2: #ffc568;
+  --accent-3: #4fe6cf;
+  --accent-4: #a58bff;
+
+  --shadow-color: #02040a;
+}
+
+[data-theme="dark"] body::before {
   background:
-    radial-gradient(60rem 40rem at 78% -10%, rgba(18, 166, 144, 0.08), transparent 60%),
-    radial-gradient(50rem 40rem at 10% 110%, rgba(79, 108, 214, 0.06), transparent 60%);
+    radial-gradient(55rem 38rem at 80% -10%, color-mix(in srgb, var(--accent-4) 30%, transparent), transparent 60%),
+    radial-gradient(45rem 36rem at 8% 105%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%);
 }
 
 * {
@@ -81,7 +97,7 @@ body {
   transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-/* Halo ambiental muy sutil, fijo al fondo */
+/* Halo ambiental de color, fijo al fondo */
 body::before {
   content: "";
   position: fixed;
@@ -89,8 +105,8 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(60rem 40rem at 78% -10%, rgba(79, 214, 192, 0.06), transparent 60%),
-    radial-gradient(50rem 40rem at 10% 110%, rgba(124, 156, 255, 0.05), transparent 60%);
+    radial-gradient(55rem 38rem at 80% -10%, color-mix(in srgb, var(--accent-2) 20%, transparent), transparent 60%),
+    radial-gradient(45rem 36rem at 8% 105%, color-mix(in srgb, var(--accent-3) 18%, transparent), transparent 60%);
 }
 
 a {
@@ -102,8 +118,8 @@ a {
 .display {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.02;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
 }
 
 h1,
@@ -111,16 +127,27 @@ h2,
 h3 {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
   font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--accent);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background: currentColor;
 }
 
 /* ---------- Utilidades de layout ---------- */
@@ -143,37 +170,43 @@ h3 {
   align-items: center;
   gap: 0.6rem;
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 0.95rem;
-  padding: 0.8rem 1.4rem;
+  padding: 0.85rem 1.5rem;
   border-radius: 999px;
-  border: 1px solid var(--studio-line);
+  border: 2.5px solid var(--ink);
   color: var(--ink);
-  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  background: var(--navy-700);
+  box-shadow: var(--shadow-sticker-sm);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.2s ease;
   will-change: transform;
 }
 
 .btn:hover {
-  border-color: var(--accent);
-  background: rgba(255, 255, 255, 0.03);
-  transform: translateY(-1px);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 0 var(--shadow-color);
+}
+
+.btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 0 var(--shadow-color);
 }
 
 .btn--solid {
-  background: var(--ink);
-  color: var(--navy-900);
+  background: var(--accent);
+  color: #fff;
   border-color: var(--ink);
-  font-weight: 600;
 }
 
 .btn--solid:hover {
-  background: #fff;
-  border-color: #fff;
+  background: color-mix(in srgb, var(--accent) 88%, white);
 }
 
 /* ---------- Focus visible accesible ---------- */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -181,10 +214,10 @@ h3 {
 /* ---------- Revelado al hacer scroll ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(24px) scale(0.98);
   transition:
-    opacity 0.7s cubic-bezier(0.16, 0.84, 0.44, 1),
-    transform 0.7s cubic-bezier(0.16, 0.84, 0.44, 1);
+    opacity 0.6s cubic-bezier(0.16, 0.84, 0.44, 1),
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .reveal--in {

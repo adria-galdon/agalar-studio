@@ -23,26 +23,33 @@
 }
 
 .dot {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  border: 2px solid var(--studio-line);
-  background: var(--navy-800);
+  border: 2.5px solid var(--ink);
+  background: var(--navy-700);
   flex-shrink: 0;
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .active .dot {
-  border-color: var(--accent);
+  border-color: var(--ink);
   background: var(--accent);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 20%, transparent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 .line {
-  width: 2px;
+  width: 3px;
   flex: 1;
-  background: var(--studio-line);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--ink) 0,
+    var(--ink) 6px,
+    transparent 6px,
+    transparent 12px
+  );
   margin: 0.3rem 0;
+  opacity: 0.35;
 }
 
 .content {
@@ -71,4 +78,22 @@
 .stepBody {
   color: var(--ink-soft);
   max-width: 52ch;
+}
+
+.link {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.pending .stepTitle,
+.pending .stepBody {
+  color: var(--ink-faint);
+}
+
+.pending .dot {
+  border-style: dashed;
+}
+
+.pending .content {
+  opacity: 0.75;
 }

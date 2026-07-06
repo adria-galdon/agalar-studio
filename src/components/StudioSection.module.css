@@ -1,67 +1,98 @@
 .wrap {
-  border-top: 1px solid var(--studio-line);
-  background: var(--navy-900);
+  position: relative;
+  height: 300vh;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  background: var(--navy-800);
 }
 
-.layout {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: clamp(2rem, 6vw, 5rem);
-  align-items: start;
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.inner {
+  width: 100%;
 }
 
 .title {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  margin: 0.8rem 0 1.6rem;
+  margin: 0.8rem 0 1.4rem;
+  max-width: 18ch;
 }
 
 .text {
   color: var(--ink-soft);
   max-width: 46ch;
-  margin-bottom: 1.1rem;
 }
 
-.principles {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
+.stageWrap {
+  position: relative;
+  min-height: 220px;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
 }
 
-.principle {
+.stage {
+  position: absolute;
+  inset: 0;
+  max-width: 42rem;
   display: flex;
+  align-items: flex-start;
   gap: 1.2rem;
-  padding: 1.4rem;
-  border: 1px solid var(--studio-line);
-  border-radius: var(--radius);
-  background: var(--navy-800);
-  transition: border-color 0.3s ease;
-}
-
-.principle:hover {
-  border-color: var(--accent);
 }
 
 .num {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--accent);
-  font-variant-numeric: tabular-nums;
-  padding-top: 0.2rem;
+  padding: 0.4rem 0.7rem;
+  border: 2.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--navy-700);
+  flex-shrink: 0;
 }
 
-.pTitle {
-  font-size: 1.15rem;
-  margin-bottom: 0.4rem;
+.stageTitle {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  margin-bottom: 0.6rem;
 }
 
-.pBody {
+.stageBody {
   color: var(--ink-soft);
-  font-size: 0.93rem;
+  font-size: 1.05rem;
+  max-width: 40ch;
 }
 
-@media (max-width: 860px) {
-  .layout {
-    grid-template-columns: 1fr;
+.progress {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  opacity: 0.3;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dotActive {
+  opacity: 1;
+  transform: scale(1.6);
+}
+
+@media (max-width: 720px) {
+  .stage {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 }

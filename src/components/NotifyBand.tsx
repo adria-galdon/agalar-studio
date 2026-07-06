@@ -10,13 +10,13 @@ export function NotifyBand() {
           <div className={styles.copy}>
             <p className="eyebrow">No te lo pierdas</p>
             <h2 className={styles.title}>
-              Nexus está a punto.
+              Sé el primero en enterarte
               <br />
-              Que no te pille de nuevas.
+              de lo que lanzamos.
             </h2>
             <p className={styles.text}>
-              Déjame tu correo y te aviso el día que se pueda descargar. Nada más:
-              un único mensaje cuando de verdad importe.
+              Déjame tu correo y te aviso cuando haya novedades de verdad:
+              lanzamientos, betas abiertas, hitos del estudio. Nada más.
             </p>
           </div>
           <div className={styles.formWrap}>

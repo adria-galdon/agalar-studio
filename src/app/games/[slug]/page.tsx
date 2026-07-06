@@ -2,7 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getGame, getAllGameSlugs, statusLabel } from "@/data/games";
-import { Phone3DClient } from "@/components/Phone3DClient";
+import { ScreenshotPhone } from "@/components/ScreenshotPhone";
+import { NexusDemo } from "@/components/NexusDemo";
 import styles from "./game.module.css";
 
 // Genera una página estática por cada juego en build time.
@@ -43,7 +44,7 @@ export default async function GamePage({
       style={{ ["--game-accent" as string]: game.accent }}
     >
       <div className="container">
-        <Link href="/#juegos" className={styles.back}>
+        <Link href="/juegos" className={styles.back}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path
               d="M13 8H3M7 4L3 8l4 4"
@@ -78,11 +79,12 @@ export default async function GamePage({
           </div>
         </header>
 
-        {/* Mientras no haya capturas reales, mostramos la mecánica del juego */}
-        <div className={styles.visual}>
-          <div className={styles.visualGlow} aria-hidden="true" />
-          <Phone3DClient accent={game.accent} />
-        </div>
+        {game.screenshots && game.screenshots.length > 0 && (
+          <div className={styles.visual}>
+            <div className={styles.visualGlow} aria-hidden="true" />
+            <ScreenshotPhone shots={game.screenshots} accent={game.accent} />
+          </div>
+        )}
 
         <div className={styles.body}>
           {game.description.map((para, i) => (
@@ -108,6 +110,8 @@ export default async function GamePage({
           </div>
         )}
       </div>
+
+      {game.slug === "nexus" && <NexusDemo />}
     </article>
   );
 }

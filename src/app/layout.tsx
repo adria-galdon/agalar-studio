@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { games } from "@/data/games";
@@ -13,11 +14,11 @@ export const metadata: Metadata = {
     template: "%s, Agalar Studio",
   },
   description:
-    "Agalar Studio construye el futuro de los juegos independientes, un título a la vez. Empezamos con Nexus. Seguiremos con más.",
+    "Agalar Studio es un estudio indie de videojuegos. Diseñamos y construimos con criterio, sin atajos. Nuestro primer título, Nexus, ya se puede jugar.",
   openGraph: {
     title: "Agalar Studio",
     description:
-      "Agalar Studio construye el futuro de los juegos independientes, un título a la vez. Empezamos con Nexus. Seguiremos con más.",
+      "Agalar Studio es un estudio indie de videojuegos. Diseñamos y construimos con criterio, sin atajos.",
     type: "website",
     locale: "es_ES",
     siteName: "Agalar Studio",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Agalar Studio",
     description:
-      "Agalar Studio construye el futuro de los juegos independientes, un título a la vez.",
+      "Agalar Studio es un estudio indie de videojuegos. Diseñamos y construimos con criterio, sin atajos.",
   },
   icons: {
     icon: "/logos/mark-dark-on-light.png",
@@ -55,7 +56,7 @@ const jsonLd = {
       logo: "https://agalarstudio.com/logos/mark-dark-on-light.png",
       email: "hola@agalarstudio.com",
       description:
-        "Estudio independiente de videojuegos. Empezamos con Nexus, un puzzle narrativo de ciencia ficción.",
+        "Estudio independiente de videojuegos, formado por una persona. Diseña y construye cada título con criterio.",
     },
     ...games.map((g) => ({
       "@type": "VideoGame",
@@ -96,6 +97,7 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+          <ScrollProgress />
           <SiteHeader />
           <main>{children}</main>
           <SiteFooter />
