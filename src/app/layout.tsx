@@ -13,20 +13,20 @@ export const metadata: Metadata = {
     template: "%s, Agalar Studio",
   },
   description:
-    "Agalar Studio construye el futuro de los juegos independientes, un título a la vez. Empezamos con Nexus. Seguiremos con más.",
+    "Agalar Studio es un estudio indie de videojuegos para Android e iOS. Diseñamos, programamos y publicamos nuestros propios juegos, uno a uno y sin prisas.",
   openGraph: {
-    title: "Agalar Studio",
+    title: "Agalar Studio, estudio indie de videojuegos móviles",
     description:
-      "Agalar Studio construye el futuro de los juegos independientes, un título a la vez. Empezamos con Nexus. Seguiremos con más.",
+      "Estudio independiente de videojuegos para Android e iOS. Conoce nuestro roadmap y los juegos que estamos construyendo.",
     type: "website",
     locale: "es_ES",
     siteName: "Agalar Studio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agalar Studio",
+    title: "Agalar Studio, estudio indie de videojuegos móviles",
     description:
-      "Agalar Studio construye el futuro de los juegos independientes, un título a la vez.",
+      "Estudio independiente de videojuegos para Android e iOS. Conoce nuestro roadmap y nuestros juegos.",
   },
   icons: {
     icon: "/logos/mark-dark-on-light.png",
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6f5f0" },
     { media: "(prefers-color-scheme: dark)", color: "#0e1428" },
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
   ],
 };
 
@@ -55,7 +55,7 @@ const jsonLd = {
       logo: "https://agalarstudio.com/logos/mark-dark-on-light.png",
       email: "hola@agalarstudio.com",
       description:
-        "Estudio independiente de videojuegos. Empezamos con Nexus, un puzzle narrativo de ciencia ficción.",
+        "Estudio independiente de videojuegos para Android e iOS. Diseñamos, programamos y publicamos nuestros propios juegos.",
     },
     ...games.map((g) => ({
       "@type": "VideoGame",
@@ -95,7 +95,7 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>
-        <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem>
           <SiteHeader />
           <main>{children}</main>
           <SiteFooter />

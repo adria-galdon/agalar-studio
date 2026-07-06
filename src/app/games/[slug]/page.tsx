@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getGame, getAllGameSlugs, statusLabel } from "@/data/games";
-import { Phone3DClient } from "@/components/Phone3DClient";
 import styles from "./game.module.css";
 
 // Genera una página estática por cada juego en build time.
@@ -78,10 +77,10 @@ export default async function GamePage({
           </div>
         </header>
 
-        {/* Mientras no haya capturas reales, mostramos la mecánica del juego */}
+        {/* Visual de marca del juego (portada cuando exista) */}
         <div className={styles.visual}>
           <div className={styles.visualGlow} aria-hidden="true" />
-          <Phone3DClient accent={game.accent} />
+          <span className={styles.visualMark}>{game.title}</span>
         </div>
 
         <div className={styles.body}>

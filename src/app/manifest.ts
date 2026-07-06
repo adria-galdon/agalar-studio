@@ -5,11 +5,11 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Agalar Studio",
     short_name: "Agalar",
     description:
-      "Estudio independiente de videojuegos. Empezamos con Nexus, un puzzle narrativo de ciencia ficción.",
+      "Estudio independiente de videojuegos para Android e iOS. Diseñamos y publicamos nuestros propios juegos.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0e1428",
-    theme_color: "#0e1428",
+    background_color: "#f6f5f0",
+    theme_color: "#f6f5f0",
     lang: "es",
     categories: ["games", "entertainment"],
     icons: [

@@ -9,7 +9,8 @@ export function SiteFooter() {
         <div className={styles.brand}>
           <AgalarMark size={34} />
           <p className={styles.tagline}>
-            Un estudio independiente construyendo su primer juego, en serio.
+            Estudio indie de videojuegos para Android e iOS. Un juego cuidado
+            cada vez.
           </p>
         </div>
 

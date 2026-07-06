@@ -25,13 +25,13 @@ export function SiteHeader() {
         <div className={styles.right}>
           <nav className={styles.nav} aria-label="Principal">
             <Link href="/#juegos">Juegos</Link>
-            <Link href="/#demo">Jugar</Link>
+            <Link href="/#roadmap">Roadmap</Link>
             <Link href="/#estudio">Estudio</Link>
             <Link href="/#contacto">Contacto</Link>
           </nav>
           <ThemeToggle />
           <Link href="/#notificame" className={`btn btn--solid ${styles.cta}`}>
-            Notifícame
+            Sígueme
           </Link>
         </div>
       </div>

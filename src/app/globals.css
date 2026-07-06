@@ -1,27 +1,31 @@
 /* ============================================================
    AGALAR STUDIO — sistema de diseño
-   Paleta derivada de la marca. Fondo navy profundo como el logo.
-   El estudio es neutro (plata/hueso); cada juego aporta su acento.
+   Estudio independiente de videojuegos para Android e iOS.
+   Estética clara y limpia: papel cálido, tinta casi negra,
+   mucho aire y un único acento eléctrico usado con mesura.
+   Los tokens mantienen sus nombres para no romper los módulos.
    ============================================================ */
 
 :root {
-  /* Superficies */
-  --navy-900: #0a0f1f;   /* fondo más profundo */
-  --navy-800: #0e1428;   /* fondo principal (color del logo) */
-  --navy-700: #141b33;   /* superficies elevadas */
-  --navy-600: #1c2542;   /* bordes / hover */
+  color-scheme: light;
+
+  /* Superficies (claro por defecto) */
+  --navy-900: #ecebe4;   /* paneles / secciones alternas (footer, estudio) */
+  --navy-800: #f6f5f0;   /* fondo principal (papel cálido) */
+  --navy-700: #ffffff;   /* tarjetas y superficies elevadas */
+  --navy-600: #eceae1;   /* hover / chips / rellenos suaves */
 
   /* Tinta y texto */
-  --ink: #f4f6fb;        /* texto principal casi blanco */
-  --ink-soft: #b3bdd6;   /* texto secundario */
-  --ink-faint: #6b769a;  /* texto terciario / captions */
+  --ink: #17181d;        /* texto principal casi negro */
+  --ink-soft: #55565d;   /* texto secundario */
+  --ink-faint: #8a8b91;  /* texto terciario / captions */
 
-  /* Acento neutro del estudio (no de un juego concreto) */
-  --studio: #c9d3ea;     /* plata fría */
-  --studio-line: #2a3454;/* líneas estructurales */
+  /* Acento neutro del estudio */
+  --studio: #2a2b30;
+  --studio-line: #e4e2d9;/* líneas y bordes estructurales */
 
-  /* Acento activo — lo sobrescribe cada juego vía inline style */
-  --accent: #4fd6c0;
+  /* Acento activo — cada juego puede sobrescribirlo en su página */
+  --accent: #2f4bf7;
 
   /* Métrica */
   --maxw: 1180px;
@@ -31,33 +35,25 @@
   /* Tipografía — se cargan vía <link> en el layout, con fallback a system-ui */
   --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+}
 
+/* ---------- Tema oscuro (opcional, vía toggle) ---------- */
+[data-theme="dark"] {
   color-scheme: dark;
-}
 
-/* ---------- Tema claro ---------- */
-[data-theme="light"] {
-  color-scheme: light;
+  --navy-900: #0a0f1f;
+  --navy-800: #0e1428;
+  --navy-700: #141b33;
+  --navy-600: #1c2542;
 
-  --navy-900: #eef0f6;
-  --navy-800: #ffffff;
-  --navy-700: #f5f6fb;
-  --navy-600: #e7e9f4;
+  --ink: #f4f6fb;
+  --ink-soft: #b3bdd6;
+  --ink-faint: #6b769a;
 
-  --ink: #0e1428;
-  --ink-soft: #4c5578;
-  --ink-faint: #838da8;
+  --studio: #c9d3ea;
+  --studio-line: #26304e;
 
-  --studio: #3b4568;
-  --studio-line: #dfe2ee;
-
-  --accent: #12a690;
-}
-
-[data-theme="light"] body::before {
-  background:
-    radial-gradient(60rem 40rem at 78% -10%, rgba(18, 166, 144, 0.08), transparent 60%),
-    radial-gradient(50rem 40rem at 10% 110%, rgba(79, 108, 214, 0.06), transparent 60%);
+  --accent: #7c93ff;
 }
 
 * {
@@ -79,18 +75,6 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   transition: background-color 0.35s ease, color 0.35s ease;
-}
-
-/* Halo ambiental muy sutil, fijo al fondo */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(60rem 40rem at 78% -10%, rgba(79, 214, 192, 0.06), transparent 60%),
-    radial-gradient(50rem 40rem at 10% 110%, rgba(124, 156, 255, 0.05), transparent 60%);
 }
 
 a {
@@ -117,8 +101,8 @@ h3 {
 .eyebrow {
   font-family: var(--font-body);
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
+  font-weight: 600;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
@@ -149,26 +133,27 @@ h3 {
   border-radius: 999px;
   border: 1px solid var(--studio-line);
   color: var(--ink);
-  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  background: var(--navy-700);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, color 0.25s ease;
   will-change: transform;
 }
 
 .btn:hover {
-  border-color: var(--accent);
-  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--ink);
   transform: translateY(-1px);
 }
 
 .btn--solid {
   background: var(--ink);
-  color: var(--navy-900);
+  color: var(--navy-800);
   border-color: var(--ink);
   font-weight: 600;
 }
 
 .btn--solid:hover {
-  background: #fff;
-  border-color: #fff;
+  background: var(--studio);
+  border-color: var(--studio);
+  color: var(--navy-800);
 }
 
 /* ---------- Focus visible accesible ---------- */

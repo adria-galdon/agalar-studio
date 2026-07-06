@@ -4,20 +4,26 @@ import styles from "./Roadmap.module.css";
 const steps = [
   {
     tag: "Ahora",
-    title: "Beta jugable de principio a fin",
-    body: "La historia completa de Nexus ya se puede jugar. Estamos afinando niveles, ritmo de dificultad y los detalles finales.",
+    title: "Terminando nuestro primer juego",
+    body: "El primer título del estudio ya es jugable de principio a fin. Afinamos niveles, ritmo y los últimos detalles antes de publicarlo.",
     active: true,
   },
   {
-    tag: "Próximo trimestre",
-    title: "Pulido y balance",
-    body: "Un grupo reducido de jugadores prueba la beta a fondo. Ajustamos dificultad, rendimiento y accesibilidad antes del lanzamiento público.",
+    tag: "Siguiente",
+    title: "Lanzamiento en Android e iOS",
+    body: "Publicación en Google Play y App Store. Nuestro objetivo es que cada juego del estudio llegue a las dos plataformas.",
     active: false,
   },
   {
-    tag: "Más adelante",
-    title: "Lanzamiento en Android",
-    body: "Nexus llega a Google Play. El primer título de Agalar Studio, disponible para todo el mundo.",
+    tag: "Después",
+    title: "El segundo juego",
+    body: "Con el primero fuera, arranca el siguiente proyecto. Cada juego nuevo sube el listón del anterior en diseño y ambición.",
+    active: false,
+  },
+  {
+    tag: "A largo plazo",
+    title: "Un estudio que dure",
+    body: "Crecer poco a poco, sin perder el criterio: un catálogo de juegos hechos con cuidado y un equipo que pueda sostenerlo.",
     active: false,
   },
 ];
@@ -27,8 +33,8 @@ export function Roadmap() {
     <section id="roadmap" className="section">
       <div className="container">
         <Reveal>
-          <p className="eyebrow">Hoja de ruta</p>
-          <h2 className={styles.title}>Esto es a lo que nos comprometemos.</h2>
+          <p className="eyebrow">Roadmap del estudio</p>
+          <h2 className={styles.title}>Hacia dónde vamos.</h2>
         </Reveal>
 
         <ol className={styles.list}>

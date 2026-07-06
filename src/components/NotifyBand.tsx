@@ -8,15 +8,16 @@ export function NotifyBand() {
       <div className="container">
         <Reveal className={styles.inner}>
           <div className={styles.copy}>
-            <p className="eyebrow">No te lo pierdas</p>
+            <p className="eyebrow">Sigue al estudio</p>
             <h2 className={styles.title}>
-              Nexus está a punto.
+              Entérate de lo que
               <br />
-              Que no te pille de nuevas.
+              estamos construyendo.
             </h2>
             <p className={styles.text}>
-              Déjame tu correo y te aviso el día que se pueda descargar. Nada más:
-              un único mensaje cuando de verdad importe.
+              Déjanos tu correo y te avisamos cuando lancemos un juego o haya
+              novedades importantes del estudio. Sin spam: solo cuando de verdad
+              importe.
             </p>
           </div>
           <div className={styles.formWrap}>

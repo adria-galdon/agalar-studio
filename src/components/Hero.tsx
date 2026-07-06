@@ -1,54 +1,50 @@
-import { Phone3DClient } from "./Phone3DClient";
+import Link from "next/link";
 import styles from "./Hero.module.css";
 
 const stats = [
-  { value: "01", label: "Título en desarrollo activo" },
-  { value: "100%", label: "Autofinanciado, sin atajos" },
-  { value: "1", label: "Persona detrás de todo esto" },
+  { value: "iOS + Android", label: "Nuestras plataformas" },
+  { value: "Indie", label: "Independiente y autofinanciado" },
+  { value: "01", label: "Juego en camino, más por venir" },
 ];
 
 export function Hero() {
   return (
     <section className={styles.hero}>
-      <div className={styles.grid} aria-hidden="true" />
-      <div className={styles.glow} aria-hidden="true" />
-
       <div className={`container ${styles.inner}`}>
-        <div className={styles.copy}>
-          <p className={`eyebrow ${styles.eyebrow}`}>Agalar Studio</p>
-          <h1 className={styles.title}>
-            Hacemos un juego,
-            <br />
-            <span className={styles.accent}>no una promesa.</span>
-          </h1>
-          <p className={styles.lead}>
-            Nexus es un puzzle narrativo de ciencia ficción, y ya se puede
-            jugar de principio a fin. Nada de conceptos bonitos sin nada
-            detrás, esto es un estudio construyendo su primer título en
-            serio.
-          </p>
-          <div className={styles.actions}>
-            <a href="#demo" className="btn btn--solid">
-              Juega el demo
-            </a>
-            <a href="/games/nexus" className="btn">
-              Descubre Nexus
-            </a>
-          </div>
+        <p className={`eyebrow ${styles.eyebrow}`}>
+          Estudio indie de videojuegos, Android e iOS
+        </p>
 
-          <dl className={styles.stats}>
-            {stats.map((s) => (
-              <div key={s.label} className={styles.stat}>
-                <dt className={styles.statValue}>{s.value}</dt>
-                <dd className={styles.statLabel}>{s.label}</dd>
-              </div>
-            ))}
-          </dl>
+        <h1 className={styles.title}>
+          Hacemos juegos para el móvil
+          <br />
+          <span className={styles.accent}>que de verdad queremos jugar.</span>
+        </h1>
+
+        <p className={styles.lead}>
+          Agalar Studio es un estudio independiente y pequeño. Diseñamos,
+          programamos y publicamos nuestros propios juegos para Android e iOS,
+          uno a uno y sin prisa. Esto no va de un solo título: va de construir
+          un estudio que dure.
+        </p>
+
+        <div className={styles.actions}>
+          <Link href="#juegos" className="btn btn--solid">
+            Ver nuestros juegos
+          </Link>
+          <Link href="#roadmap" className="btn">
+            Nuestro roadmap
+          </Link>
         </div>
 
-        <div className={styles.visual}>
-          <Phone3DClient accent="#4fd6c0" />
-        </div>
+        <dl className={styles.stats}>
+          {stats.map((s) => (
+            <div key={s.label} className={styles.stat}>
+              <dt className={styles.statValue}>{s.value}</dt>
+              <dd className={styles.statLabel}>{s.label}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
