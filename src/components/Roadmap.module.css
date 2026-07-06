@@ -1,0 +1,74 @@
+.title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin: 0.8rem 0 3rem;
+  max-width: 20ch;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 1.6rem;
+}
+
+.marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--studio-line);
+  background: var(--navy-800);
+  flex-shrink: 0;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.active .dot {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.line {
+  width: 2px;
+  flex: 1;
+  background: var(--studio-line);
+  margin: 0.3rem 0;
+}
+
+.content {
+  padding-bottom: 2.6rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.5rem;
+}
+
+.active .tag {
+  color: var(--accent);
+}
+
+.stepTitle {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.stepBody {
+  color: var(--ink-soft);
+  max-width: 52ch;
+}

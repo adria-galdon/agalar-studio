@@ -1,0 +1,27 @@
+.logoSwap,
+.markSwap {
+  position: relative;
+  display: inline-block;
+}
+
+.forLight,
+.forDark {
+  object-fit: contain;
+  transition: opacity 0.2s ease;
+}
+
+.forLight {
+  opacity: 0;
+}
+
+.forDark {
+  opacity: 1;
+}
+
+[data-theme="light"] .forLight {
+  opacity: 1;
+}
+
+[data-theme="light"] .forDark {
+  opacity: 0;
+}

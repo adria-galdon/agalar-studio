@@ -1,0 +1,123 @@
+.page {
+  --game-accent: var(--accent);
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 3rem;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.back:hover {
+  color: var(--game-accent);
+  gap: 0.75rem;
+}
+
+.header {
+  max-width: 60ch;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.4rem;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--game-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--game-accent) 20%, transparent);
+}
+
+.sep {
+  color: var(--ink-faint);
+}
+
+.title {
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+
+.tagline {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.6rem;
+}
+
+.tag {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--studio-line);
+  color: var(--ink-soft);
+}
+
+.visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2.5rem, 6vw, 4rem) 1rem;
+  margin: 3rem 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--studio-line);
+  background:
+    linear-gradient(135deg, var(--navy-700), var(--navy-900));
+  overflow: hidden;
+}
+
+.visualGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(40rem 30rem at 30% 20%, color-mix(in srgb, var(--game-accent) 18%, transparent), transparent 60%),
+    radial-gradient(30rem 30rem at 85% 90%, color-mix(in srgb, var(--game-accent) 12%, transparent), transparent 55%);
+}
+
+.body {
+  max-width: 65ch;
+}
+
+.para {
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  color: var(--ink-soft);
+  margin-bottom: 1.4rem;
+  line-height: 1.75;
+}
+
+.para:first-child {
+  color: var(--ink);
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+}
+
+.links {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}

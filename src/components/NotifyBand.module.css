@@ -1,0 +1,57 @@
+.band {
+  position: relative;
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  gap: 2rem;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  border-radius: calc(var(--radius) + 6px);
+  background:
+    radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 55%),
+    var(--navy-700);
+  border: 1px solid var(--studio-line);
+  overflow: hidden;
+}
+
+.inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--studio-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--studio-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(80% 80% at 0% 100%, #000, transparent 70%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+@media (min-width: 820px) {
+  .inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+.copy {
+  position: relative;
+}
+
+.title {
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  line-height: 1.05;
+  margin-top: 0.6rem;
+}
+
+.text {
+  color: var(--ink-soft);
+  margin-top: 1rem;
+  max-width: 44ch;
+}
+
+.formWrap {
+  position: relative;
+}

@@ -1,0 +1,24 @@
+.canvasWrap {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 9 / 18.5;
+  margin-inline: auto;
+  cursor: grab;
+}
+
+.canvasWrap canvas {
+  outline: none;
+  touch-action: none;
+}
+
+.fallback {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 9 / 18.5;
+  margin-inline: auto;
+  border-radius: 42px;
+  background: linear-gradient(160deg, #1c2542, #0a0f1f);
+  box-shadow:
+    0 30px 70px -20px rgba(0, 0, 0, 0.5),
+    0 0 0 1px var(--studio-line);
+}

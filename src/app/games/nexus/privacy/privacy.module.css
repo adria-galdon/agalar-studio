@@ -1,0 +1,52 @@
+.page {
+  padding-top: clamp(3rem, 6vw, 5rem);
+}
+
+.container {
+  max-width: 68ch;
+}
+
+.title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.updated {
+  color: var(--ink-faint);
+  font-size: 0.9rem;
+  margin-top: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.container h2 {
+  font-size: 1.15rem;
+  margin-top: 2.2rem;
+  margin-bottom: 0.7rem;
+}
+
+.container p,
+.container ul {
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+
+.container ul {
+  padding-left: 1.25rem;
+}
+
+.container li {
+  margin-bottom: 0.5rem;
+}
+
+.container li::marker {
+  color: var(--ink-faint);
+}
+
+.container a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.container strong {
+  color: var(--ink);
+}
