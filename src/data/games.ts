@@ -51,6 +51,24 @@ export const games: Game[] = [
     ],
     links: [],
   },
+  {
+    slug: "influencermanager",
+    title: "Influencer Manager",
+    tagline: "No creas contenido. Diriges a quienes lo crean.",
+    status: "in-development",
+    year: "2026",
+    platforms: ["Android", "iOS"],
+    genres: ["Manager", "Simulación", "Estrategia"],
+    accent: "#F2669B",
+    description: [
+      "Diriges una agencia de representación de creadores de contenido. No creas contenido tú — fichas talentos, negocias contratos de marca, gestionas crisis de reputación y haces crecer tu agencia frente a otras agencias rivales. Con cantidades de dinero creíbles en euros: nada de números estratosféricos ni monedas de fantasía.",
+      "Cada talento es un personaje contado a través de sus atributos: carisma, consistencia, polémica, autenticidad, resiliencia mental y habilidad negociadora. Combinados con su estado —alcance, desgaste, lealtad, percepción pública— cuentan una historia sin que nadie escriba una sola línea sobre ellos.",
+      "Los talentos crecen en tres plataformas ficticias con reglas de algoritmo propias, firman contratos con marcas también ficticias que exigen alcance mínimo y toleran distinta polémica, y generan crisis a partir de su propio estado —nunca escritas a mano— que el jugador debe decidir cómo gestionar: disculpa pública, ignorar, contraatacar o distanciar a la agencia.",
+      "Cada semana se asigna el tiempo limitado de cada talento entre publicar, grabar campañas, colaborar, descansar o entrenar, y al cerrar la semana se resuelve todo a la vez. Free-to-play respetuoso: el juego completo es jugable sin pagar, y lo de pago es información y comodidad, nunca resultados garantizados.",
+    ],
+    screenshots: [],
+    links: [],
+  },
 ];
 
 // Helpers para el resto de la app.
